@@ -1,6 +1,7 @@
 package com.example.slmns.demo;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,11 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() != null){
+            //start profile activity here
+            finish();
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        }
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -44,7 +50,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     private void registerUser(){
         String email = editTextEmail.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
-
+        // checking if email and password are empty
         if (TextUtils.isEmpty(email)){
             //email is empty
             Toast.makeText(this, "Please enter Email", Toast.LENGTH_SHORT).show();
@@ -57,7 +63,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
             return;
         }
         // if validations are ok
-        // we will first show a progressdialog
+        // we will show a progressdialog
 
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
@@ -69,6 +75,11 @@ public class main extends AppCompatActivity implements View.OnClickListener {
                     // user if successfully registered and logged in
                     // we will start the profile activity here
                     // right now we will only display a toast
+
+                        //start profile activity here
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
                     Toast.makeText(main.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(main.this, "Failed", Toast.LENGTH_SHORT).show();
@@ -86,6 +97,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
         if(view == textViewSignin){
             //will open login activity here
+            startActivity(new Intent(this,LoginActivity.class));
         }
 
     }
