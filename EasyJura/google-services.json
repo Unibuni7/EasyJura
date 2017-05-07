@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "451265213281",
+    "firebase_url": "https://fir-43497.firebaseio.com",
+    "project_id": "fir-43497",
+    "storage_bucket": "fir-43497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451265213281:android:2ab7ad8f9b0c1b0e",
+        "android_client_info": {
+          "package_name": "com.example.slmns.easyjura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451265213281-oq6v4qu1fff2j7msk6b1t2480v18l21l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQgdrbo8wu2BmU6PLayoX0IPa87LvJp-w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451265213281:android:164567839a92d6eb",
+        "android_client_info": {
+          "package_name": "com.example.slmns.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451265213281-oq6v4qu1fff2j7msk6b1t2480v18l21l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQgdrbo8wu2BmU6PLayoX0IPa87LvJp-w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
