@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context="com.example.slmns.demo.main">
 
+
+
    <LinearLayout
        android:layout_centerHorizontal="true"
        android:layout_centerVertical="true"
@@ -46,5 +48,18 @@
            android:layout_height="wrap_content" />
 
    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewEasyjura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="46dp"
+        android:textSize="20sp"
+        android:text="Easy Jura" />
 
 </RelativeLayout>
