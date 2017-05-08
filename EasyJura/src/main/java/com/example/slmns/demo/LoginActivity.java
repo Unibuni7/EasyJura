@@ -80,6 +80,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // Start the profile activity
                     finish();
                     startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                } else {
+                    Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }
             }
         });
