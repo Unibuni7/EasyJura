@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class main extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonRegister;
-    private EditText editTextEmail,editTextpassword;
+    private EditText editTextPhone,editTextpassword;
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -38,7 +38,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         }
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextpassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignin = (TextView) findViewById(R.id.textViewSigning);
 
@@ -48,12 +48,12 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void registerUser(){
-        String email = editTextEmail.getText().toString().trim();
+        String Phone = editTextPhone.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
         // checking if email and password are empty
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(Phone)){
             //email is empty
-            Toast.makeText(this, "Please enter Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter Phone", Toast.LENGTH_SHORT).show();
             // return will stop the funtion
             return;
         }
@@ -68,7 +68,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
 
-        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(Phone+"@phone.no",password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){

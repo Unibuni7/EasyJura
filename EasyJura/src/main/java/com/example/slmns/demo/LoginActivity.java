@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonSignIn;
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextPhone, editTextPassword;
     private TextView textViewSignup;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         buttonSignIn = (Button) findViewById(R.id.buttonSignin);
         textViewSignup = (TextView) findViewById(R.id.textViewSignup);
@@ -50,13 +50,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void userLogin(){
-        String email = editTextEmail.getText().toString().trim();
+        String phone = editTextPhone.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         // checking if email and password are empty
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(phone)){
             //email is empty
-            Toast.makeText(this, "Please enter Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter phone-number", Toast.LENGTH_SHORT).show();
             // return will stop the funtion
             return;
         }
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog.setMessage("Signing in ....");
         progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.signInWithEmailAndPassword(phone+"@phone.no",password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();

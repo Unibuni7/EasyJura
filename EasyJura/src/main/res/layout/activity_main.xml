@@ -17,9 +17,9 @@
 
        <EditText
            android:layout_margin="15dp"
-           android:inputType="textEmailAddress"
-           android:hint="Enter your Email"
-           android:id="@+id/editTextEmail"
+           android:inputType="phone"
+           android:hint="Enter your Phone"
+           android:id="@+id/editTextPhone"
            android:layout_width="match_parent"
            android:layout_height="wrap_content" />
 
