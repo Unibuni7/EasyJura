@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class main extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonRegister;
-    private EditText editTextPhone,editTextpassword;
+    private EditText editTextPhone,editTextpassword, EditTextpasswordbekraft;
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -41,6 +41,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextpassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignin = (TextView) findViewById(R.id.textViewSigning);
+        EditTextpasswordbekraft = (EditText) findViewById(R.id.editTextPasswordbekraft);
 
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
@@ -50,6 +51,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     private void registerUser(){
         String Phone = editTextPhone.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
+        String passwordb = EditTextpasswordbekraft.getText().toString().trim();
         // checking if email and password are empty
         if (TextUtils.isEmpty(Phone)){
             //email is empty
@@ -62,12 +64,24 @@ public class main extends AppCompatActivity implements View.OnClickListener {
             Toast.makeText(this, "Please enter Password", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (TextUtils.isEmpty(passwordb)){
+            // Confirm password is empty
+            Toast.makeText(this, "Please enter Password again", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!password.equals(passwordb)) {
+            Toast.makeText(this, "The password does not match", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // if validations are ok
         // we will show a progressdialog
 
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
 
+
+
+        if (password.equals(passwordb)){
         firebaseAuth.createUserWithEmailAndPassword(Phone+"@phone.no",password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,7 +99,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
                     Toast.makeText(main.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });}
     }
 
     @Override
