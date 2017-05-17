@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (firebaseAuth.getCurrentUser() != null){
             //start profile activity here
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), PasswordActivity.class));
         }
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -79,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     // Start the profile activity
                     finish();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), PasswordActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }
