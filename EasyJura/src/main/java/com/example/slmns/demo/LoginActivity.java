@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     // Start the profile activity
                     finish();
-                    startActivity(new Intent(getApplicationContext(), PasswordActivity.class));
+                    startActivity(new Intent(getApplicationContext(), NotesActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }

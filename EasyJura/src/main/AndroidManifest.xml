@@ -20,7 +20,10 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".PasswordActivity"></activity>
+        <activity android:name=".PasswordActivity" />
+        <activity android:name=".NotesActivity" />
+        <activity android:name=".NotesAdd" />
+        <activity android:name=".NotesRead"></activity>
     </application>
 
 </manifest>
