@@ -43,11 +43,11 @@ public class NotesAdd extends AppCompatActivity  implements View.OnClickListener
         String NoteName = editTextNoteName.getText().toString().trim();
         String Note = editTextNotes.getText().toString().trim();
 
-        UserNotes userNotes = new UserNotes(NoteName,Note);
+        UserNotes userNotes = new UserNotes(Note);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        databaseReference.child(user.getUid()).setValue(userNotes);
+        databaseReference.child(user.getUid()).child(NoteName).setValue(userNotes);
 
         Toast.makeText(this,"Note Saved....", Toast.LENGTH_LONG).show();
     }

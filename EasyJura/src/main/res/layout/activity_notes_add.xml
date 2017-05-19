@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name note"
+        android:lines="2"
         android:id="@+id/editTextNameNote"/>
 
 
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Note"
-            android:lines="10"
+            android:lines="5"
             android:id="@+id/editTextNote"/>
 
         <Button

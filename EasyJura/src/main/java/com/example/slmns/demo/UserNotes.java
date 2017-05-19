@@ -5,12 +5,12 @@ package com.example.slmns.demo;
  */
 
 public class UserNotes {
-    public String NoteName;
+
     public String Note;
 
 
-    public UserNotes(String noteName, String note) {
-        NoteName = noteName;
+    public UserNotes( String note) {
+
         Note = note;
     }
 }
