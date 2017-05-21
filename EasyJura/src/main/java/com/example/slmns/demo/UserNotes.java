@@ -9,7 +9,7 @@ public class UserNotes {
     public String Note;
 
 
-    public UserNotes( String note) {
+    public UserNotes(String note) {
 
         Note = note;
     }
