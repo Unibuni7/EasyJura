@@ -7,198 +7,119 @@
     tools:context="com.example.slmns.demo.ProfileActivity">
 
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
 
         <TextView
-            android:id="@+id/textViewUserEmail"
-            android:layout_width="wrap_content"
+            android:id="@+id/textViewProfil"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="TextView"
-            tools:layout_constraintTop_creator="1"
-            tools:layout_constraintRight_creator="1"
-            app:layout_constraintRight_toRightOf="parent"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="5dp" />
+            android:layout_width="match_parent"
+            android:text="Bruger profil"
+            android:textAlignment="center"
+            android:textSize="20dp"/>
 
 
-        <Button
-            android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            tools:layout_constraintTop_creator="1"
-            android:layout_marginStart="2dp"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintLeft_toLeftOf="@+id/textViewUserEmail"
-            android:layout_marginLeft="-63dp"
-            tools:layout_editor_absoluteY="447dp" />
 
-        <Button
-            android:id="@+id/Logout_Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Log ud"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            tools:layout_editor_absoluteY="538dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
 
         <EditText
             android:id="@+id/FirmaNavn_EditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Firmanavn"
-            android:layout_marginEnd="21dp"
-            tools:layout_editor_absoluteY="39dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            android:hint="FirmaNavn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/Branche_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Branche"
-            tools:layout_editor_absoluteY="92dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.431" />
+            android:hint="Brance"
+             />
 
         <EditText
             android:id="@+id/CvrNr_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="CVR nr"
-            tools:layout_editor_absoluteY="149dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.455" />
+            android:hint="CVR nr" />
 
         <EditText
             android:id="@+id/Fornavn_EditText"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Fornavn"
-            tools:layout_editor_absoluteY="204dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.246" />
+            android:hint="Fornavn"
+             />
 
         <EditText
             android:id="@+id/EfterNavn__EditText"
-            android:layout_width="88dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Efternavn"
-            tools:layout_editor_absoluteY="204dp"
-            android:layout_marginRight="88dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.965" />
+            android:hint="Efternavn"
+            />
 
         <EditText
             android:id="@+id/Adresse_EditText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Adresse"
-            tools:layout_editor_absoluteY="259dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.431" />
+            android:hint="Adresse"
+            />
 
         <EditText
             android:id="@+id/Email_EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/PostNr_EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="PostNr"
+                android:layout_weight="0.15" />
+
+            <EditText
+                android:id="@+id/By_EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="By"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="0.33" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/ButtonTilbage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Email"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.431"
-            app:layout_constraintBottom_toBottomOf="@+id/buttonLogout"
-            android:layout_marginBottom="82dp" />
-
-        <EditText
-            android:id="@+id/PostNr_EditText"
-            android:layout_width="100dp"
-            android:layout_height="43dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Post nr"
-            tools:layout_editor_absoluteY="313dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/By_EditText"
-            android:layout_marginRight="8dp"
-            app:layout_constraintHorizontal_bias="0.776" />
-
-        <EditText
-            android:id="@+id/By_EditText"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="By"
-            tools:layout_editor_absoluteY="313dp"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintHorizontal_bias="0.689" />
+            android:text="Tilbage"
+            android:layout_margin="15dp"/>
 
         <Button
             android:id="@+id/ButtonGem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gem"
-            tools:layout_editor_absoluteX="258dp"
-            tools:layout_editor_absoluteY="447dp" />
+            android:layout_margin="15dp"
+            />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonAddNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add-note"
-            tools:layout_editor_absoluteX="33dp"
-            tools:layout_editor_absoluteY="447dp" />
-
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 
 
