@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -47,7 +48,7 @@ public class NotesAdd extends AppCompatActivity  implements View.OnClickListener
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        databaseReference.child(user.getUid()).child(NoteName).setValue(userNotes);
+        databaseReference.child("Notes").child(user.getUid()).child(NoteName).setValue(userNotes);
 
         Toast.makeText(this,"Note Saved....", Toast.LENGTH_LONG).show();
     }
