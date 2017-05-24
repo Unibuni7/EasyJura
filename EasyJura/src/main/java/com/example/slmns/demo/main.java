@@ -32,7 +32,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null){
-            //start profile activity here
+            //start activity here
             finish();
             startActivity(new Intent(getApplicationContext(), NotesActivity.class));
         }
@@ -104,6 +104,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
 
         if(view == buttonRegister) {
             registerUser();

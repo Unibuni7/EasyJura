@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null){
-            //start profile activity here
+            //start activity here
             finish();
             startActivity(new Intent(getApplicationContext(), PasswordActivity.class));
         }
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textViewSignup = (TextView) findViewById(R.id.textViewSignup);
         progressDialog = new ProgressDialog(this);
 
-
+        // setOnclickListener makes them clickable.
         buttonSignIn.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
     }
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (TextUtils.isEmpty(phone)){
             //email is empty
             Toast.makeText(this, "Please enter phone-number", Toast.LENGTH_SHORT).show();
-            // return will stop the funtion
+            // return will stop the funtcion
             return;
         }
         if (TextUtils.isEmpty(password)){
@@ -89,11 +89,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    // Onclick method are auto generated if you implement View.OnclickListner.
     public void onClick(View view) {
+        //if you press the button "buttonsignin" you will activate the userlogin method.
     if (view == buttonSignIn){
         userLogin();
     }
     if (view == textViewSignup){
+        // if you press the textViewsignup you will be moved to the main class, and you will finish using this activity.
         finish();
         startActivity(new Intent(this,main.class));
     }
