@@ -26,7 +26,7 @@
         android:text="@string/buttonTextTilbud" />
 
     <Button
-        android:id="@+id/buttonSøg"
+        android:id="@+id/buttonSoeg"
         android:layout_width="130dp"
         android:layout_height="75dp"
         android:layout_gravity="start|fill_horizontal"
@@ -51,38 +51,42 @@
         android:padding="5dp"
         android:text="Medarbejdere" />
 
-    <Button
-        android:id="@+id/buttonNotater"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_gravity="start|fill_horizontal"
-        android:layout_margin="15dp"
-        android:text="Notater" />
-
-    <Button
-        android:id="@+id/buttonProfil"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_gravity="right|fill_horizontal"
-        android:layout_margin="15dp"
-        android:text="Profil" />
-
     <GridLayout
         android:layout_width="155dp"
         android:layout_height="137dp"
         android:layout_column="1"
         android:layout_row="3"
-        android:columnCount="3"
-        android:rowCount="5">
+        android:columnCount="5"
+        android:rowCount="6">
 
         <Button
-            android:id="@+id/button25"
+            android:id="@+id/ButtonTilbage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="0"
+            android:layout_column="4"
             android:layout_margin="15dp"
-            android:layout_row="4"
-            android:text="Button" />
+            android:layout_row="1"
+            android:text="tilbage" />
     </GridLayout>
+
+    <Button
+        android:id="@+id/buttonProfil"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_column="1"
+        android:layout_gravity="right|fill_horizontal"
+        android:layout_margin="15dp"
+        android:layout_row="2"
+        android:text="Profil" />
+
+    <Button
+        android:id="@+id/buttonNotater"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_column="0"
+        android:layout_gravity="start|fill_horizontal"
+        android:layout_margin="15dp"
+        android:layout_row="2"
+        android:text="Notater" />
 
 </GridLayout>

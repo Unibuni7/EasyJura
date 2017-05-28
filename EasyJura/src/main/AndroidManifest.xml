@@ -23,6 +23,7 @@
         <activity android:name=".PasswordActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".NotesAdd" />
+        <activity android:name=".FrontPageActivity"/>
         <activity android:name=".NotesRead"></activity>
     </application>
 

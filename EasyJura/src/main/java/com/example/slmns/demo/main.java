@@ -25,6 +25,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,9 @@ public class main extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() != null){
-            //start profile activity here
+            // This should now make the first page the front page after login has been created.
             finish();
-            startActivity(new Intent(getApplicationContext(), NotesActivity.class));
+            startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
         }
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);

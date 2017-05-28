@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     // Start the profile activity
                     finish();
-                    startActivity(new Intent(getApplicationContext(), NotesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }
@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     if (view == textViewSignup){
         finish();
-        startActivity(new Intent(this,main.class));
+        startActivity(new Intent(this, main.class));
     }
     }
 }
