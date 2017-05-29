@@ -17,8 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
-
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonSignIn;
@@ -80,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     // Start the profile activity
                     finish();
-                    startActivity(new Intent(getApplicationContext(), NotesActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }
@@ -98,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     if (view == textViewSignup){
         // if you press the textViewsignup you will be moved to the main class, and you will finish using this activity.
         finish();
-        startActivity(new Intent(this,main.class));
+        startActivity(new Intent(this, Registrering.class));
     }
     }
 }
