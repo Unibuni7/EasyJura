@@ -25,19 +25,31 @@
         >
 
         <Button
+            android:id="@+id/buttonAddNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Notes"
-            android:id="@+id/buttonAddNotes"
-            android:layout_margin="15dp"/>
+            android:layout_margin="15dp"
+            android:text="Tilføg Noter" />
 
         <Button
+            android:id="@+id/buttonReadNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Read Notes"
-            android:id="@+id/buttonReadNotes"
-            android:layout_margin="15dp"/>
+            android:layout_margin="15dp"
+            android:text="Læs Noter" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonTilbage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewNotes"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/textViewNotes"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:text="Tilbage" />
 
 </RelativeLayout>

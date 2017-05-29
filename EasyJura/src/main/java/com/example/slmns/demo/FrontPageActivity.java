@@ -35,14 +35,6 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         buttonTilbud = (Button) findViewById(R.id.buttonTilbud);
         buttonNotater = (Button) findViewById(R.id.buttonNotater);
 
-        if (firebaseAuth == null){
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
-
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-
-
 
         buttonProfil.setOnClickListener(this);
         buttonMedarbejder.setOnClickListener(this);

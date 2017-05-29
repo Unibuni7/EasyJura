@@ -24,6 +24,7 @@
         <activity android:name=".NotesActivity" />
         <activity android:name=".NotesAdd" />
         <activity android:name=".FrontPageActivity"/>
+        <activity android:name=".TilbudSideActivity"/>
         <activity android:name=".NotesRead"></activity>
     </application>
 

@@ -25,6 +25,7 @@ public class RegistreringActivity extends AppCompatActivity implements View.OnCl
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class RegistreringActivity extends AppCompatActivity implements View.OnCl
         if (firebaseAuth.getCurrentUser() != null){
             //start activity here
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
         }
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);

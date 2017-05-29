@@ -43,8 +43,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         editTextAdress = (EditText) findViewById(R.id.Adresse_EditText);
         editTextPostNr = (EditText) findViewById(R.id.PostNr_EditText);
         editTextBy = (EditText) findViewById(R.id.By_EditText);
-        buttonGem = (Button) findViewById(R.id.ButtonGem);
-        buttonTilbage=(Button)findViewById(R.id.ButtonTilbage);
+        buttonGem = (Button) findViewById(R.id.buttonGem);
+        buttonTilbage= (Button) findViewById(R.id.buttonTilbage);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
@@ -78,18 +78,24 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         // We create children, and after that we assign a value by using setValue (There are probably better way to do it, but this works too.)
-        databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);
+        try{
+            databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);
+        } catch (NullPointerException e){
+            System.out.println(e);
+        }
+
+        /*databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);*/
         Toast.makeText(this,"profile Saved....", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onClick(View view) {
-if(view==buttonGem){
-    Gem();
-}
-if (view==buttonTilbage){
-    startActivity(new Intent(this,NotesActivity.class));
-}
+        if(view == buttonGem) {
+        Gem();
+        }
+        if (view == buttonTilbage) {
+        startActivity(new Intent(this,FrontPageActivity.class));
+        }
 
     }
 }

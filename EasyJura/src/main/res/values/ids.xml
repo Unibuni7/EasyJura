@@ -3,4 +3,5 @@
     <item name="buttonSoeg" type="id">Søg</item>
     <item name="buttonLavTilbud" type="id">Lav Tilbud</item>
     <item name="buttonSeTidligereTilbud" type="id">Se tidligere tilbud</item>
+    <item name="buttonTilbage" type="id">Tilbage</item>
 </resources>

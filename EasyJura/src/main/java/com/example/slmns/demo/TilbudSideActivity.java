@@ -14,23 +14,19 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class TilbudSideActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private FirebaseAuth firebaseAuth;
     private Button buttonLavTilbud;
     private Button buttonSeTidligereTilbud;
     private Button buttonTilbage;
-    private FirebaseAuth firebaseAuth;
+
 
     //Opretter siden til tilbud, med tre knapper (nyt tilbud, tilbuds oversigt og tilbage).
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tilbud);
-
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser() != null){
 
-            finish();
-            startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
-        }
 
         buttonLavTilbud = (Button) findViewById(R.id.buttonLavTilbud);
         buttonSeTidligereTilbud = (Button) findViewById(R.id.buttonSeTidligereTilbud);
