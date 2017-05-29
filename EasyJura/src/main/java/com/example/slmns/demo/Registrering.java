@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class main extends AppCompatActivity implements View.OnClickListener {
+public class Registrering extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonRegister;
-    private EditText editTextPhone,editTextpassword, EditTextpasswordbekraft;
+    private EditText editTextPhone,editTextpassword, editTextPasswordBekraft;
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
@@ -32,8 +31,9 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        // This should now make the first page the front page after login has been created.
         if (firebaseAuth.getCurrentUser() != null){
-            // This should now make the first page the front page after login has been created.
             finish();
             startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
         }
@@ -42,7 +42,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextpassword = (EditText) findViewById(R.id.editTextPassword);
         textViewSignin = (TextView) findViewById(R.id.textViewSigning);
-        EditTextpasswordbekraft = (EditText) findViewById(R.id.editTextPasswordbekraft);
+        editTextPasswordBekraft = (EditText) findViewById(R.id.editTextPasswordbekraft);
 
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
@@ -52,7 +52,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
     private void registerUser(){
         String Phone = editTextPhone.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
-        String passwordb = EditTextpasswordbekraft.getText().toString().trim();
+        String passwordb = editTextPasswordBekraft.getText().toString().trim();
         // checking if email and password are empty
         if (TextUtils.isEmpty(Phone)){
             //email is empty
@@ -95,9 +95,9 @@ public class main extends AppCompatActivity implements View.OnClickListener {
                         finish();
                         startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
-                    Toast.makeText(main.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registrering.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(main.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registrering.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });}

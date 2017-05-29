@@ -17,8 +17,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
-
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonSignIn;
@@ -95,7 +93,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
     if (view == textViewSignup){
         finish();
-        startActivity(new Intent(this, main.class));
+        startActivity(new Intent(this, Registrering.class));
     }
     }
 }

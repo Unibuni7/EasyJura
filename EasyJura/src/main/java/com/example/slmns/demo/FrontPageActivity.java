@@ -59,13 +59,13 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         }
         if(view == buttonNotater){
             startActivity(new Intent(this,NotesActivity.class ));
-        }/*else if( view == buttonMedarbejder) {
+        }/* if( view == buttonMedarbejder) {
             startActivity(new Intent(this, MedarbejdereActivity.class));
-        }else if( view == buttonRegnskab) {
+        } if( view == buttonRegnskab) {
             startActivity(new Intent(this, RegnskabActivity.class));
-        }else if ( view == buttonSoeg) {
+        } if ( view == buttonSoeg) {
             startActivity(new Intent(this, SoegActivity.class));
-        }else if ( view == buttonTilbud) {
+        } if ( view == buttonTilbud) {
             startActivity(new Intent(this, TilbudActivity.class));
         }*/
     }
