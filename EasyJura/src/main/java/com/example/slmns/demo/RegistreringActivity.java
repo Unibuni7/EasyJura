@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Registrering extends AppCompatActivity implements View.OnClickListener {
+public class RegistreringActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonRegister;
     private EditText editTextPhone,editTextpassword, editTextPasswordBekraft;
@@ -96,9 +96,9 @@ public class Registrering extends AppCompatActivity implements View.OnClickListe
                         finish();
                         startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
-                    Toast.makeText(Registrering.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistreringActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Registrering.this, "Failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistreringActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });}
