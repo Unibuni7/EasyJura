@@ -34,7 +34,7 @@ public class main extends AppCompatActivity implements View.OnClickListener {
         if (firebaseAuth.getCurrentUser() != null){
             //start activity here
             finish();
-            startActivity(new Intent(getApplicationContext(), NotesActivity.class));
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
         progressDialog = new ProgressDialog(this);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
