@@ -34,20 +34,28 @@ public class NotesAdd extends AppCompatActivity  implements View.OnClickListener
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
+
+        // SetonclickListener allows us to use them as clickable buttons
         buttonSaveNote.setOnClickListener(this);
         buttonBackNotesAdd.setOnClickListener(this);
 
     }
 
+
+    // SaveNote method will allow us to save our notes in the database.
     private void SaveNote(){
 
+        // we assign the viarables that we are going to use.
         String NoteName = editTextNoteName.getText().toString().trim();
         String Note = editTextNotes.getText().toString().trim();
 
+        // Create a new object of the UserNotes class.
         UserNotes userNotes = new UserNotes(Note);
 
+        // The current users id will be used when you use this activity.
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
+        // We create children, and after that we assign a value by using setValue (There are probably better way to do it, but this works too.)
         databaseReference.child("Notes").child(user.getUid()).child(NoteName).setValue(userNotes);
 
         Toast.makeText(this,"Note Saved....", Toast.LENGTH_LONG).show();

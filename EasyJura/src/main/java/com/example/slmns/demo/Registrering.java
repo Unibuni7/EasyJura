@@ -34,6 +34,7 @@ public class Registrering extends AppCompatActivity implements View.OnClickListe
 
         // This should now make the first page the front page after login has been created.
         if (firebaseAuth.getCurrentUser() != null){
+            //start activity here
             finish();
             startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
         }
@@ -105,6 +106,7 @@ public class Registrering extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+
 
         if(view == buttonRegister) {
             registerUser();
