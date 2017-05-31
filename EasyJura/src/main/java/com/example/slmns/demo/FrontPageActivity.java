@@ -53,7 +53,7 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
             startActivity(new Intent(this,NotesActivity.class ));
         }/*
         if( view == buttonMedarbejder) {
-            startActivity(new Intent(this, MedarbejdereActivity.class));
+            startActivity(new Intent(this, MedarbejderActivity.class));
         }
         if( view == buttonRegnskab) {
             startActivity(new Intent(this, RegnskabActivity.class));

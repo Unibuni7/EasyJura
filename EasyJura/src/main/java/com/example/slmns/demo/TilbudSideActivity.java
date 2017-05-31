@@ -45,7 +45,7 @@ public class TilbudSideActivity extends AppCompatActivity implements View.OnClic
         }
 
         if(view == buttonTilbage) {
-            startActivity(new Intent(this, FrontPageActivity.class));
+            finish();
         }
 
         if(view == buttonSeTidligereTilbud) {
