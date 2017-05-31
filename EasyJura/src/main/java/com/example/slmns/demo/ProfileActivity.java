@@ -79,7 +79,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         // We create children, and after that we assign a value by using setValue (There are probably better way to do it, but this works too.)
         try{
-            databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);
+            databaseReference.child("Profile").child(user.getUid()).setValue(profileUser);
         } catch (NullPointerException e){
             System.out.println(e);
         }

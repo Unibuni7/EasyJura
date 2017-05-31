@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Demo.iml" filepath="$PROJECT_DIR$/Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/EasyJura.iml" filepath="$PROJECT_DIR$/EasyJura.iml" />
-      <module fileurl="file://$PROJECT_DIR$/EasyJura/EasyJura.iml" filepath="$PROJECT_DIR$/EasyJura/EasyJura.iml" />
       <module fileurl="file://$PROJECT_DIR$/EasyJura/EasyJura-EasyJura.iml" filepath="$PROJECT_DIR$/EasyJura/EasyJura-EasyJura.iml" />
     </modules>
   </component>

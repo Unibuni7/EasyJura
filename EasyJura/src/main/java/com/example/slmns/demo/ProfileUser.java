@@ -5,15 +5,14 @@ package com.example.slmns.demo;
  */
 // Vi lavet en ny klasse som giver os tilladelse at gemme flere variabler i databasen.
 public class ProfileUser {
-    public  String firmaNavn,branche,fornavn,efterNavn,forNavn,adress,email,by;
+    public  String firmaNavn,branche,Fornavn,efterNavn,adress,email,by;
     public String cvr,postNr;
 
-    public ProfileUser(String firmaNavn, String branche, String fornavn, String efterNavn, String adress, String email, String by, String cvr, String postNr) {
+    public ProfileUser(String firmaNavn, String branche, String Fornavn, String efterNavn, String adress, String email, String by, String cvr, String postNr) {
         this.firmaNavn = firmaNavn;
         this.branche = branche;
-        this.fornavn = fornavn;
+        this.Fornavn = Fornavn;
         this.efterNavn = efterNavn;
-        this.forNavn = forNavn;
         this.adress = adress;
         this.email = email;
         this.by = by;
