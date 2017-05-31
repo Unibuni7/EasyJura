@@ -26,6 +26,7 @@
         <activity android:name=".FrontPageActivity"/>
         <activity android:name=".TilbudSideActivity"/>
         <activity android:name=".MedarbejderActivity"/>
+        <activity android:name="NytTilbudActivity"/>
         <activity android:name=".NotesRead"></activity>
     </application>
 
