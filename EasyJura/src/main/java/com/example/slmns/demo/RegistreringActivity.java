@@ -93,7 +93,7 @@ public class RegistreringActivity extends AppCompatActivity implements View.OnCl
 
                         //start profile activity here
                         finish();
-                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
 
                     Toast.makeText(RegistreringActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                 } else {

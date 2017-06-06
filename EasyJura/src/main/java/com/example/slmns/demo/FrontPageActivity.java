@@ -57,10 +57,10 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         }
         if( view == buttonRegnskab) {
             startActivity(new Intent(this, RegnskabActivity.class));
-        }
+        }*/
         if ( view == buttonSoeg) {
-            startActivity(new Intent(this, SoegActivity.class));
-        } */
+            startActivity(new Intent(this, FakturaActivity.class));
+        }
         if ( view == buttonTilbud) {
             startActivity(new Intent(this, TilbudSideActivity.class));
         }
