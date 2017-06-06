@@ -94,7 +94,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Gem();
         }
         if (view == buttonTilbage) {
-        startActivity(new Intent(this,FrontPageActivity.class));
+            finish();
         }
 
     }

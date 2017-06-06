@@ -43,7 +43,7 @@ public class NotesActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, NotesRead.class));
         }
         if (view == buttonTilbage) {
-            startActivity(new Intent(this,FrontPageActivity.class ));
+            finish();
         }
 
     }

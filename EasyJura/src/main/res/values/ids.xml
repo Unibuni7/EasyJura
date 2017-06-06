@@ -4,4 +4,6 @@
     <item name="buttonLavTilbud" type="id">Lav Tilbud</item>
     <item name="buttonSeTidligereTilbud" type="id">Se tidligere tilbud</item>
     <item name="buttonTilbage" type="id">Tilbage</item>
+    <item name="buttonOpretMedarbejder" type="id" />
+    <item name="buttonSeMedarbejdere" type="id" />
 </resources>

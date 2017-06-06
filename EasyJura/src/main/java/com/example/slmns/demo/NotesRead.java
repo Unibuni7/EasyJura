@@ -56,7 +56,7 @@ public class NotesRead extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View view) {
         if (view == buttonReadBack){
-            startActivity(new Intent(this,NotesActivity.class));
+            finish();
         }
     }
 }
