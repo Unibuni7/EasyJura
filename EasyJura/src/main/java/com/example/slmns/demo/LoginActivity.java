@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textViewSignup = (TextView) findViewById(R.id.textViewSignup);
         progressDialog = new ProgressDialog(this);
 
+
         // setOnclickListener makes them clickable.
         buttonSignIn.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);

@@ -23,9 +23,10 @@
         <activity android:name=".PasswordActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".NotesAdd" />
-        <activity android:name=".FrontPageActivity"/>
-        <activity android:name=".TilbudSideActivity"/>
-        <activity android:name=".NotesRead"></activity>
+        <activity android:name=".FrontPageActivity" />
+        <activity android:name=".TilbudSideActivity" />
+        <activity android:name=".NotesRead" />
+        <activity android:name=".FakturaActivity"></activity>
     </application>
 
 </manifest>
