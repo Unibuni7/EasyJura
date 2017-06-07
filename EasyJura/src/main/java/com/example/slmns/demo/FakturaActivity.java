@@ -17,7 +17,7 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private EditText editTextPrisMaterialer, editTextLønningerTotal;
     private TextView textViewUdregnet;
-    private Button buttonUdregnAdd, subtract;
+    private Button buttonUdregnAdd, subtract,multiply;
     private int materialePris, lønningerTotal;
 
 
@@ -35,12 +35,16 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
         textViewUdregnet = (TextView) findViewById(R.id.textViewUdregnet);
         buttonUdregnAdd = (Button) findViewById(R.id.buttonUdregnAdd);
         subtract = (Button) findViewById(R.id.subtract);
+        multiply = (Button) findViewById(R.id.multiply);
+
 
         materialePris = 1;
         lønningerTotal = 1;
 
         buttonUdregnAdd.setOnClickListener(this);
         subtract.setOnClickListener(this);
+
+        multiply.setOnClickListener(this);
 
         editTextLønningerTotal.setText("5");
         editTextPrisMaterialer.setText("7");
@@ -59,6 +63,10 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
         int endPrice = materialePris - lønningerTotal;
         return endPrice;
     }
+    public int multiplyPrice (int materialePris, int lønningerTotal){
+        int endPrice = materialePris * lønningerTotal;
+        return endPrice;
+    }
 
     @Override
     public void onClick(View view) {
@@ -74,6 +82,11 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
             lønningerTotal = Integer.parseInt(editTextLønningerTotal.getText().toString());
             textViewUdregnet.setText(Integer.toString(subtractTotalPrice(materialePris, lønningerTotal)));
 
+        }
+        if(view == multiply){
+            materialePris = Integer.parseInt(editTextPrisMaterialer.getText().toString());
+            lønningerTotal = Integer.parseInt(editTextLønningerTotal.getText().toString());
+            textViewUdregnet.setText(Integer.toString(multiplyPrice(materialePris, lønningerTotal)));
         }
 
     }

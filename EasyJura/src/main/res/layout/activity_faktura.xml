@@ -9,7 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,7 +86,7 @@
             android:text="Træk værdier fra hinanden." />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/multiply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Gang værdi." />

@@ -1,5 +1,6 @@
 package com.example.slmns.demo;
 
+import android.support.annotation.WorkerThread;
 import android.widget.EditText;
 
 import org.junit.Test;
@@ -46,5 +47,11 @@ public class FakturaActivityTest {
 
 
     }
-
+@Test
+    public void multiply() throws Exception {
+    int input1 = 10, input2 = 5, expected = 50, output;
+    FakturaActivity fakturaActivity = new FakturaActivity();
+    output = fakturaActivity.multiplyPrice(input1, input2);
+    assertEquals(expected, output);
+}
 }
