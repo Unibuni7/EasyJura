@@ -96,6 +96,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Divider værdi" />
+
+        <Button
+            android:id="@+id/buttonTilbage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tilbage" />
     </LinearLayout>
 
 </RelativeLayout>

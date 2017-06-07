@@ -17,7 +17,7 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth;
     private EditText editTextPrisMaterialer, editTextLønningerTotal;
     private TextView textViewUdregnet;
-    private Button buttonUdregnAdd, subtract,multiply;
+    private Button buttonUdregnAdd, subtract, multiply, tilbage;
     private int materialePris, lønningerTotal;
 
 
@@ -36,6 +36,7 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
         buttonUdregnAdd = (Button) findViewById(R.id.buttonUdregnAdd);
         subtract = (Button) findViewById(R.id.subtract);
         multiply = (Button) findViewById(R.id.multiply);
+        tilbage = (Button) findViewById(R.id.buttonTilbage);
 
 
         materialePris = 1;
@@ -43,8 +44,8 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
 
         buttonUdregnAdd.setOnClickListener(this);
         subtract.setOnClickListener(this);
-
         multiply.setOnClickListener(this);
+        tilbage.setOnClickListener(this);
 
         editTextLønningerTotal.setText("5");
         editTextPrisMaterialer.setText("7");
@@ -87,6 +88,9 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
             materialePris = Integer.parseInt(editTextPrisMaterialer.getText().toString());
             lønningerTotal = Integer.parseInt(editTextLønningerTotal.getText().toString());
             textViewUdregnet.setText(Integer.toString(multiplyPrice(materialePris, lønningerTotal)));
+        }
+        if(view == tilbage) {
+            finish();
         }
 
     }
