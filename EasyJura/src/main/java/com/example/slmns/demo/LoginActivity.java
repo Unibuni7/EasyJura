@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (firebaseAuth.getCurrentUser() != null){
             //start activity here
             finish();
-            startActivity(new Intent(getApplicationContext(), PasswordActivity.class));
+            startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
         }
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (task.isSuccessful()){
                     // Start the profile activity
                     finish();
-                    startActivity(new Intent(getApplicationContext(), FakturaActivity.class));
+                    startActivity(new Intent(getApplicationContext(), FrontPageActivity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Access denied, please try again", Toast.LENGTH_SHORT).show();
                 }

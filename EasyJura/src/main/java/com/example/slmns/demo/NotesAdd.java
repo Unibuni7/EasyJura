@@ -44,7 +44,7 @@ public class NotesAdd extends AppCompatActivity  implements View.OnClickListener
 
     // SaveNote method will allow us to save our notes in the database.
     protected void SaveNote(
-            
+
     ){
 
         // we assign the viarables that we are going to use.

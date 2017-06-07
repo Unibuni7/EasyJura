@@ -119,6 +119,13 @@
             android:text="Gem"
             android:layout_margin="15dp"
             android:layout_weight="0.27" />
+
+            <Button
+                android:id="@+id/buttonChangePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Ændre Password" />
         </LinearLayout>
 
     </LinearLayout>

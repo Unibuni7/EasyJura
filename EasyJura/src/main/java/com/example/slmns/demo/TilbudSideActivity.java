@@ -40,16 +40,16 @@ public class TilbudSideActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        if(view == buttonLavTilbud){
+       /* if(view == buttonLavTilbud){
             startActivity(new Intent(this, NytTilbudActivity.class));
         }
-
+*/
         if(view == buttonTilbage) {
             finish();
         }
-
+/*
         if(view == buttonSeTidligereTilbud) {
             startActivity(new Intent(this, TilbudOversigtActivity.class));
-        }
+        }*/
     }
 }

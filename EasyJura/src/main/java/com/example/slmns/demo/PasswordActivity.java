@@ -1,6 +1,7 @@
 package com.example.slmns.demo;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class PasswordActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button buttonUpdate;
+    private Button buttonUpdate, buttontilbage;
     private EditText editTextOldPassword, editTextNewPassword, editTextPhone;
     private TextView textViewChangePassword;
     private ProgressDialog progressDialog;
@@ -38,12 +39,14 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         editTextOldPassword = (EditText) findViewById(R.id.editTextOldPassword);
         editTextNewPassword = (EditText) findViewById(R.id.editTextNewPassword);
         buttonUpdate = (Button) findViewById(R.id.buttonUpdate);
+        buttontilbage = (Button) findViewById(R.id.buttonpasswordtilbage);
         textViewChangePassword = (TextView) findViewById(R.id.textViewChangePassword);
         editTextPhone = (EditText) findViewById(R.id.editTextPhoneChange);
         progressDialog = new ProgressDialog(this);
 
 
         buttonUpdate.setOnClickListener(this);
+        buttontilbage.setOnClickListener(this);
 
     }
 
@@ -100,6 +103,10 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         if (view == buttonUpdate) {
             UpdatePassword();
+        }
+        if (view == buttontilbage){
+            finish();
+            startActivity(new Intent(this, ProfileActivity.class));
         }
     }
 }

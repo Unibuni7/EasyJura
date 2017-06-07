@@ -23,6 +23,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             ,editTextEfterNavn,editTextEmail,editTextAdress,editTextPostNr,editTextBy;
     private Button buttonGem;
     private Button buttonTilbage;
+    private Button buttonPassword;
     private DatabaseReference databaseReference;
 
 
@@ -45,11 +46,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         editTextBy = (EditText) findViewById(R.id.By_EditText);
         buttonGem = (Button) findViewById(R.id.buttonGem);
         buttonTilbage= (Button) findViewById(R.id.buttonTilbage);
+        buttonPassword = (Button) findViewById(R.id.buttonChangePassword);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
         buttonGem.setOnClickListener(this);// Fortal programmet man kan klik på den.
         buttonTilbage.setOnClickListener(this);
+        buttonPassword.setOnClickListener(this);
 
 
 
@@ -95,6 +98,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         if (view == buttonTilbage) {
             finish();
+        }
+        if (view == buttonPassword){
+            finish();
+            startActivity(new Intent(this, PasswordActivity.class));
         }
 
     }
