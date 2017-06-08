@@ -67,7 +67,7 @@ public class NotesAdd extends AppCompatActivity  implements View.OnClickListener
     public void onClick(View view) {
 
         if (view == buttonBackNotesAdd){
-            startActivity(new Intent(this,NotesActivity.class));
+           finish();
         }
 
         if (view == buttonSaveNote){
