@@ -1,30 +1,43 @@
 package com.example.slmns.demo;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
+import java.security.Key;
+import java.util.Map;
 
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-    private FirebaseAuth firebaseAuth; //for at får Authication med Firebase
     private EditText editTextFirmaNavn, editTextBranche, editTextCVR,editTextForNavn
             ,editTextEfterNavn,editTextEmail,editTextAdress,editTextPostNr,editTextBy;
     private Button buttonGem;
     private Button buttonTilbage;
     private Button buttonPassword;
+    private FirebaseAuth firebaseAuth; //for at får Authication med Firebase
     private DatabaseReference databaseReference;
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
 
 
 
@@ -49,8 +62,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonPassword = (Button) findViewById(R.id.buttonChangePassword);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        setProfile();
 
-        buttonGem.setOnClickListener(this);// Fortal programmet man kan klik på den.
+        buttonGem.setOnClickListener(this);// Fortæl programmet man kan klikke på den.
         buttonTilbage.setOnClickListener(this);
         buttonPassword.setOnClickListener(this);
 
@@ -89,6 +103,66 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         /*databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);*/
         Toast.makeText(this,"profile Saved....", Toast.LENGTH_LONG).show();
+    }
+
+    // Method for initially having profile data in the profileActivity
+    public void setProfile() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Using a map to contain database information
+                //String parameter because the key is a String
+                //Object parameter to indicate which objects it's making a map of
+                GenericTypeIndicator<Map<String, ProfileUser>> profileMapType = new GenericTypeIndicator<Map<String, ProfileUser>>() {};
+
+                //Creation of map containing profileinformation for a single user
+                Map<String, ProfileUser> profileInfo = dataSnapshot.child("Profile").getValue(profileMapType);
+
+                // if loop to iterate through the map
+                if (profileInfo != null){
+                    for (ProfileUser info: profileInfo.values()) {
+
+                        if (info.fornavn != null){
+                            editTextForNavn.setText(info.fornavn);
+                        }
+                        if (info.adress != null){
+                            editTextAdress.setText(info.adress);
+                        }
+                        if (info.branche != null){
+                            editTextBranche.setText(info.branche);
+                        }
+                        if (info.by != null){
+                            editTextBy.setText(info.by);
+                        }
+                        if (info.cvr != null){
+                            editTextCVR.setText(info.cvr);
+                        }
+                        if (info.efterNavn != null){
+                            editTextEfterNavn.setText(info.efterNavn);
+                        }
+                        if (info.email != null){
+                            editTextEmail.setText(info.email);
+                        }
+                        if (info.firmaNavn != null){
+                            editTextFirmaNavn.setText(info.firmaNavn);
+                        }
+                        if (info.postNr != null){
+                            editTextPostNr.setText(info.postNr);
+                        }
+
+
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
     @Override
