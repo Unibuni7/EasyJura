@@ -11,17 +11,6 @@ public class UserNotesTest {
     @Test
     public void saveNote() throws Exception {
 
-        String input1 = "AAA";
-        String output;
-        String expected = "AAA";
-
-        UserNotes userNotes = new UserNotes(input1);
-
-        output = userNotes.Note;
-
-        assertEquals(expected,output);
-
-
 
 
 

@@ -11,27 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-        <TextView
+        <ListView
+            android:id="@+id/ListViewNotes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewReadNoteName"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="Note Name"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            />
+            android:layout_height="390dp"
+            android:scrollbars="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textViewReadNote"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            android:text="Note"
-            />
+        </ListView>
 
         <Button
             android:layout_width="match_parent"
