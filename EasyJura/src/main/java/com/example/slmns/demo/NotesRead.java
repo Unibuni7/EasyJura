@@ -73,6 +73,7 @@ public class NotesRead extends AppCompatActivity implements View.OnClickListener
                     // we add the usernotes objects to the usernotesList arraylist.
                     usernotesList.add(userNotes);
                 }
+
                 // You can use this adapter to provide views for an AdapterView,
                 // Returns a view for each object in a collection of data objects you provide,
                 // and can be used with list-based user interface widgets such as ListView

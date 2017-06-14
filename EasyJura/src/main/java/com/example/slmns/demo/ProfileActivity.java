@@ -23,6 +23,8 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.security.Key;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -36,8 +38,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonPassword;
     private FirebaseAuth firebaseAuth; //for at får Authication med Firebase
     private DatabaseReference databaseReference;
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+    List<ProfileUser> profileUserInfoList;
 
 
 
@@ -46,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         firebaseAuth = FirebaseAuth.getInstance();
-
+        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
 
         editTextBranche = (EditText) findViewById(R.id.Branche_EditText);
         editTextCVR = (EditText) findViewById(R.id.CvrNr_EditText);
@@ -60,9 +62,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonGem = (Button) findViewById(R.id.buttonGem);
         buttonTilbage= (Button) findViewById(R.id.buttonTilbage);
         buttonPassword = (Button) findViewById(R.id.buttonChangePassword);
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Profile").child(user.getUid());
 
-        setProfile();
+        profileUserInfoList = new ArrayList<>();
 
         buttonGem.setOnClickListener(this);// Fortæl programmet man kan klikke på den.
         buttonTilbage.setOnClickListener(this);
@@ -74,6 +76,104 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
     }
+
+
+    public void onStart() {
+        super.onStart();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                profileUserInfoList.clear();
+                /*for(DataSnapshot profileSnapshot : dataSnapshot.getChildren()) {
+                    ProfileUser profileUser = profileSnapshot.getValue(ProfileUser.class);
+                    //Add the profile info to the ArrayList
+                    profileUserInfoList.add(profileUser);*/
+
+                    ProfileUser profileUser = dataSnapshot.getValue(ProfileUser.class);
+
+                        System.out.println(profileUser);
+                        if (profileUser.fornavn != null) {
+                            editTextForNavn.setText(profileUser.fornavn);
+                        }
+                        if (profileUser.adress != null) {
+                            editTextAdress.setText(profileUser.adress);
+                        }
+                        if (profileUser.branche != null) {
+                            editTextBranche.setText(profileUser.branche);
+                        }
+                        if (profileUser.by != null) {
+                            editTextBy.setText(profileUser.by);
+                        }
+                        if (profileUser.cvr != null) {
+                            editTextCVR.setText(profileUser.cvr);
+                        }
+                        if (profileUser.efterNavn != null) {
+                            editTextEfterNavn.setText(profileUser.efterNavn);
+                        }
+                        if (profileUser.email != null) {
+                            editTextEmail.setText(profileUser.email);
+                        }
+                        if (profileUser.firmaNavn != null) {
+                            editTextFirmaNavn.setText(profileUser.firmaNavn);
+                        }
+                        if (profileUser.postNr != null) {
+                            editTextPostNr.setText(profileUser.postNr);
+                        }
+
+
+
+                /*}*/
+
+
+                // for loop to iterate through the arrayList and set the text in the editTextViews
+                // to their corresponding strings.
+
+                // if loop to iterate through the map
+                /*if (profileInfo != null) {
+                    for (ProfileUser info : profileInfo.values()) {
+                        if (info.fornavn != null) {
+                            editTextForNavn.setText(info.fornavn);
+                        }
+                        if (info.adress != null) {
+                            editTextAdress.setText(info.adress);
+                        }
+                        if (info.branche != null) {
+                            editTextBranche.setText(info.branche);
+                        }
+                        if (info.by != null) {
+                            editTextBy.setText(info.by);
+                        }
+                        if (info.cvr != null) {
+                            editTextCVR.setText(info.cvr);
+                        }
+                        if (info.efterNavn != null) {
+                            editTextEfterNavn.setText(info.efterNavn);
+                        }
+                        if (info.email != null) {
+                            editTextEmail.setText(info.email);
+                        }
+                        if (info.firmaNavn != null) {
+                            editTextFirmaNavn.setText(info.firmaNavn);
+                        }
+                        if (info.postNr != null) {
+                            editTextPostNr.setText(info.postNr);
+                        }
+
+
+                    }
+                }*/
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
     private void Gem(){
 
         // we assign the viarables that we are going to use.
@@ -94,77 +194,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         // The current users id will be used when you use this activity.
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
+
         // We create children, and after that we assign a value by using setValue (There are probably better way to do it, but this works too.)
         try{
             databaseReference.child("Profile").child(user.getUid()).setValue(profileUser);
         } catch (NullPointerException e){
             System.out.println(e);
         }
-
-        /*databaseReference.child("Profile").child(user.getUid()).child("Test").setValue(profileUser);*/
-        Toast.makeText(this,"profile Saved....", Toast.LENGTH_LONG).show();
     }
 
-    // Method for initially having profile data in the profileActivity
-    public void setProfile() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Using a map to contain database information
-                //String parameter because the key is a String
-                //Object parameter to indicate which objects it's making a map of
-                GenericTypeIndicator<Map<String, ProfileUser>> profileMapType = new GenericTypeIndicator<Map<String, ProfileUser>>() {};
-
-                //Creation of map containing profileinformation for a single user
-                Map<String, ProfileUser> profileInfo = dataSnapshot.child("Profile").getValue(profileMapType);
-
-                // if loop to iterate through the map
-                if (profileInfo != null){
-                    for (ProfileUser info: profileInfo.values()) {
-
-                        if (info.fornavn != null){
-                            editTextForNavn.setText(info.fornavn);
-                        }
-                        if (info.adress != null){
-                            editTextAdress.setText(info.adress);
-                        }
-                        if (info.branche != null){
-                            editTextBranche.setText(info.branche);
-                        }
-                        if (info.by != null){
-                            editTextBy.setText(info.by);
-                        }
-                        if (info.cvr != null){
-                            editTextCVR.setText(info.cvr);
-                        }
-                        if (info.efterNavn != null){
-                            editTextEfterNavn.setText(info.efterNavn);
-                        }
-                        if (info.email != null){
-                            editTextEmail.setText(info.email);
-                        }
-                        if (info.firmaNavn != null){
-                            editTextFirmaNavn.setText(info.firmaNavn);
-                        }
-                        if (info.postNr != null){
-                            editTextPostNr.setText(info.postNr);
-                        }
-
-
-                    }
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
-
+    /**
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         if(view == buttonGem) {
