@@ -45,8 +45,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        //Firebase information Auth and user
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
 
@@ -64,16 +67,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonPassword = (Button) findViewById(R.id.buttonChangePassword);
         databaseReference = FirebaseDatabase.getInstance().getReference("Profile").child(user.getUid());
 
-        profileUserInfoList = new ArrayList<>();
 
         buttonGem.setOnClickListener(this);// Fortæl programmet man kan klikke på den.
         buttonTilbage.setOnClickListener(this);
         buttonPassword.setOnClickListener(this);
-
-
-
-        
-
 
     }
 
@@ -84,11 +81,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                profileUserInfoList.clear();
-                /*for(DataSnapshot profileSnapshot : dataSnapshot.getChildren()) {
-                    ProfileUser profileUser = profileSnapshot.getValue(ProfileUser.class);
-                    //Add the profile info to the ArrayList
-                    profileUserInfoList.add(profileUser);*/
 
                     ProfileUser profileUser = dataSnapshot.getValue(ProfileUser.class);
 
@@ -123,47 +115,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-                /*}*/
-
-
-                // for loop to iterate through the arrayList and set the text in the editTextViews
-                // to their corresponding strings.
-
-                // if loop to iterate through the map
-                /*if (profileInfo != null) {
-                    for (ProfileUser info : profileInfo.values()) {
-                        if (info.fornavn != null) {
-                            editTextForNavn.setText(info.fornavn);
-                        }
-                        if (info.adress != null) {
-                            editTextAdress.setText(info.adress);
-                        }
-                        if (info.branche != null) {
-                            editTextBranche.setText(info.branche);
-                        }
-                        if (info.by != null) {
-                            editTextBy.setText(info.by);
-                        }
-                        if (info.cvr != null) {
-                            editTextCVR.setText(info.cvr);
-                        }
-                        if (info.efterNavn != null) {
-                            editTextEfterNavn.setText(info.efterNavn);
-                        }
-                        if (info.email != null) {
-                            editTextEmail.setText(info.email);
-                        }
-                        if (info.firmaNavn != null) {
-                            editTextFirmaNavn.setText(info.firmaNavn);
-                        }
-                        if (info.postNr != null) {
-                            editTextPostNr.setText(info.postNr);
-                        }
-
-
-                    }
-                }*/
-
             }
 
             @Override
@@ -197,7 +148,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         // We create children, and after that we assign a value by using setValue (There are probably better way to do it, but this works too.)
         try{
-            databaseReference.child("Profile").child(user.getUid()).setValue(profileUser);
+            databaseReference.setValue(profileUser);
         } catch (NullPointerException e){
             System.out.println(e);
         }
