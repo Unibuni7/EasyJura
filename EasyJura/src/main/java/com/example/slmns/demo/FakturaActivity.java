@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
@@ -19,6 +21,8 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUdregnet;
     private Button buttonUdregnAdd, subtract, multiply, tilbage;
     private int materialePris, lønningerTotal;
+    private AdView adView;
+    private AdRequest adRequest;
 
 
 
@@ -37,6 +41,14 @@ public class FakturaActivity extends AppCompatActivity implements View.OnClickLi
         subtract = (Button) findViewById(R.id.subtract);
         multiply = (Button) findViewById(R.id.multiply);
         tilbage = (Button) findViewById(R.id.buttonTilbage);
+        adView = (AdView) findViewById(R.id.adWin);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(adRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+
+        adView.loadAd(adRequest);
+
 
 
         materialePris = 1;
