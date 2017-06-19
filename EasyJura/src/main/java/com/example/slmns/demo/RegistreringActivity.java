@@ -25,6 +25,7 @@ public class RegistreringActivity extends AppCompatActivity implements View.OnCl
     private TextView textViewSignin;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    ProfileUser createAUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class RegistreringActivity extends AppCompatActivity implements View.OnCl
                     // user if successfully registered and logged in
                     // we will start the profile activity here
                     // right now we will only display a toast
+                    createAUser = new ProfileUser();
 
                         //start profile activity here
                         finish();

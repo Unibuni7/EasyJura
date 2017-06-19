@@ -39,8 +39,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth firebaseAuth; //for at får Authication med Firebase
     private DatabaseReference databaseReference;
 
-    List<ProfileUser> profileUserInfoList;
-
 
 
     @Override
@@ -84,34 +82,38 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                     ProfileUser profileUser = dataSnapshot.getValue(ProfileUser.class);
 
-                        System.out.println(profileUser);
-                        if (profileUser.fornavn != null) {
-                            editTextForNavn.setText(profileUser.fornavn);
-                        }
-                        if (profileUser.adress != null) {
-                            editTextAdress.setText(profileUser.adress);
-                        }
-                        if (profileUser.branche != null) {
-                            editTextBranche.setText(profileUser.branche);
-                        }
-                        if (profileUser.by != null) {
-                            editTextBy.setText(profileUser.by);
-                        }
-                        if (profileUser.cvr != null) {
-                            editTextCVR.setText(profileUser.cvr);
-                        }
-                        if (profileUser.efterNavn != null) {
-                            editTextEfterNavn.setText(profileUser.efterNavn);
-                        }
-                        if (profileUser.email != null) {
-                            editTextEmail.setText(profileUser.email);
-                        }
-                        if (profileUser.firmaNavn != null) {
-                            editTextFirmaNavn.setText(profileUser.firmaNavn);
-                        }
-                        if (profileUser.postNr != null) {
-                            editTextPostNr.setText(profileUser.postNr);
-                        }
+                try {
+                    System.out.println(profileUser);
+                    if (profileUser.fornavn != null) {
+                        editTextForNavn.setText(profileUser.fornavn);
+                    }
+                    if (profileUser.adress != null) {
+                        editTextAdress.setText(profileUser.adress);
+                    }
+                    if (profileUser.branche != null) {
+                        editTextBranche.setText(profileUser.branche);
+                    }
+                    if (profileUser.by != null) {
+                        editTextBy.setText(profileUser.by);
+                    }
+                    if (profileUser.cvr != null) {
+                        editTextCVR.setText(profileUser.cvr);
+                    }
+                    if (profileUser.efterNavn != null) {
+                        editTextEfterNavn.setText(profileUser.efterNavn);
+                    }
+                    if (profileUser.email != null) {
+                        editTextEmail.setText(profileUser.email);
+                    }
+                    if (profileUser.firmaNavn != null) {
+                        editTextFirmaNavn.setText(profileUser.firmaNavn);
+                    }
+                    if (profileUser.postNr != null) {
+                        editTextPostNr.setText(profileUser.postNr);
+                    }
+                } catch (NullPointerException e){
+                    System.out.println(e);
+                }
 
 
 
