@@ -84,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                     ProfileUser profileUser = dataSnapshot.getValue(ProfileUser.class);
 
+                    if(profileUser != null) {
                         System.out.println(profileUser);
                         if (profileUser.fornavn != null) {
                             editTextForNavn.setText(profileUser.fornavn);
@@ -112,6 +113,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         if (profileUser.postNr != null) {
                             editTextPostNr.setText(profileUser.postNr);
                         }
+                    }
 
 
 
